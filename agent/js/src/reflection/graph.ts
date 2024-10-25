@@ -5,12 +5,11 @@ import {
   START,
 } from "@langchain/langgraph";
 import { ReflectionGraphAnnotation, ReflectionGraphReturnType } from "./state";
-import { Reflections } from "../../types";
+import { Reflections } from "../types";
 import { REFLECT_SYSTEM_PROMPT, REFLECT_USER_PROMPT } from "./prompts";
 import { z } from "zod";
-import { ensureStoreInConfig, formatReflections } from "../utils";
-import { getArtifactContent } from "../../hooks/use-graph/utils";
-import { isArtifactMarkdownContent } from "../../lib/artifact_content_types";
+import { ensureStoreInConfig, formatReflections, getArtifactContent } from "../utils";
+import { isArtifactMarkdownContent } from "@/lib/artifact_content_types";
 
 export const reflect = async (
   state: typeof ReflectionGraphAnnotation.State,

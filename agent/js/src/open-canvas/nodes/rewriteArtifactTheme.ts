@@ -7,11 +7,10 @@ import {
   CHANGE_ARTIFACT_READING_LEVEL_PROMPT,
   CHANGE_ARTIFACT_TO_PIRATE_PROMPT,
 } from "../prompts";
-import { ensureStoreInConfig, formatReflections } from "../../utils";
-import { ArtifactV3, Reflections } from "../../../types";
+import { ensureStoreInConfig, formatReflections, getArtifactContent } from "../../utils";
+import { ArtifactV3, Reflections } from "../../types";
 import { LangGraphRunnableConfig } from "@langchain/langgraph";
-import { getArtifactContent } from "../../../hooks/use-graph/utils";
-import { isArtifactMarkdownContent } from "../../../lib/artifact_content_types";
+import { isArtifactMarkdownContent } from "@/lib/artifact_content_types";
 
 export const rewriteArtifactTheme = async (
   state: typeof OpenCanvasGraphAnnotation.State,

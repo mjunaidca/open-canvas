@@ -9,6 +9,7 @@ import {
   ensureStoreInConfig,
   formatArtifactContent,
   formatReflections,
+  getArtifactContent
 } from "../../utils";
 import {
   ArtifactCodeV3,
@@ -16,14 +17,13 @@ import {
   ArtifactV3,
   PROGRAMMING_LANGUAGES,
   Reflections,
-} from "../../../types";
+} from "../../types";
 import { LangGraphRunnableConfig } from "@langchain/langgraph";
 import { z } from "zod";
-import { getArtifactContent } from "../../../hooks/use-graph/utils";
 import {
-  isArtifactCodeContent,
   isArtifactMarkdownContent,
-} from "../../../lib/artifact_content_types";
+  isArtifactCodeContent,
+} from "@/lib/artifact_content_types";
 
 export const rewriteArtifact = async (
   state: typeof OpenCanvasGraphAnnotation.State,
@@ -79,7 +79,7 @@ export const rewriteArtifact = async (
       .enum(
         PROGRAMMING_LANGUAGES.map((lang) => lang.language) as [
           string,
-          ...string[],
+          ...string[]
         ]
       )
       .optional()

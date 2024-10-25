@@ -1,11 +1,10 @@
 import { ChatOpenAI } from "@langchain/openai";
 import { OpenCanvasGraphAnnotation, OpenCanvasGraphReturnType } from "../state";
 import { FOLLOWUP_ARTIFACT_PROMPT } from "../prompts";
-import { ensureStoreInConfig, formatReflections } from "../../utils";
-import { Reflections } from "../../../types";
+import { ensureStoreInConfig, formatReflections, getArtifactContent } from "../../utils";
+import { Reflections } from "../../types";
 import { LangGraphRunnableConfig } from "@langchain/langgraph";
-import { getArtifactContent } from "../../../hooks/use-graph/utils";
-import { isArtifactMarkdownContent } from "../../../lib/artifact_content_types";
+import { isArtifactMarkdownContent } from "@/lib/artifact_content_types";
 
 /**
  * Generate a followup message after generating or updating an artifact.

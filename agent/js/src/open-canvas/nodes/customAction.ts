@@ -6,18 +6,17 @@ import {
   CUSTOM_QUICK_ACTION_CONVERSATION_CONTEXT,
   REFLECTIONS_QUICK_ACTION_PROMPT,
 } from "../prompts";
-import { ensureStoreInConfig, formatReflections } from "../../utils";
+import { ensureStoreInConfig, formatReflections, getArtifactContent } from "../../utils";
 import {
   ArtifactCodeV3,
   ArtifactMarkdownV3,
   ArtifactV3,
   CustomQuickAction,
   Reflections,
-} from "../../../types";
+} from "../../types";
 import { LangGraphRunnableConfig } from "@langchain/langgraph";
 import { BaseMessage } from "@langchain/core/messages";
-import { getArtifactContent } from "../../../hooks/use-graph/utils";
-import { isArtifactMarkdownContent } from "../../../lib/artifact_content_types";
+import { isArtifactMarkdownContent } from "@/lib/artifact_content_types";
 
 const formatMessages = (messages: BaseMessage[]): string =>
   messages
@@ -101,7 +100,10 @@ export const customAction = async (
   const artifactContent = isArtifactMarkdownContent(currentArtifactContent)
     ? currentArtifactContent.fullMarkdown
     : currentArtifactContent?.code;
-  formattedPrompt += `\n\n${CUSTOM_QUICK_ACTION_ARTIFACT_CONTENT_PROMPT.replace("{artifactContent}", artifactContent || "No artifacts generated yet.")}`;
+  formattedPrompt += `\n\n${CUSTOM_QUICK_ACTION_ARTIFACT_CONTENT_PROMPT.replace(
+    "{artifactContent}",
+    artifactContent || "No artifacts generated yet."
+  )}`;
 
   const newArtifactValues = await smallModel.invoke([
     { role: "user", content: formattedPrompt },

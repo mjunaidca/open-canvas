@@ -7,7 +7,7 @@ import {
   ArtifactV3,
   PROGRAMMING_LANGUAGES,
   Reflections,
-} from "../../../types";
+} from "../../types";
 import { z } from "zod";
 import { ensureStoreInConfig, formatReflections } from "../../utils";
 import { LangGraphRunnableConfig } from "@langchain/langgraph";

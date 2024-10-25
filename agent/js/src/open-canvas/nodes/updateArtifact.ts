@@ -1,11 +1,10 @@
 import { ChatOpenAI } from "@langchain/openai";
 import { OpenCanvasGraphAnnotation, OpenCanvasGraphReturnType } from "../state";
 import { UPDATE_HIGHLIGHTED_ARTIFACT_PROMPT } from "../prompts";
-import { ensureStoreInConfig, formatReflections } from "../../utils";
-import { ArtifactCodeV3, ArtifactV3, Reflections } from "../../../types";
+import { ensureStoreInConfig, formatReflections, getArtifactContent } from "../../utils";
+import { ArtifactCodeV3, ArtifactV3, Reflections } from "../../types";
 import { LangGraphRunnableConfig } from "@langchain/langgraph";
-import { getArtifactContent } from "../../../hooks/use-graph/utils";
-import { isArtifactCodeContent } from "../../../lib/artifact_content_types";
+import { isArtifactCodeContent } from "@/lib/artifact_content_types";
 
 /**
  * Update an existing artifact based on the user's query.

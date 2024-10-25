@@ -6,9 +6,9 @@ import {
   FIX_BUGS_CODE_ARTIFACT_PROMPT,
   PORT_LANGUAGE_CODE_ARTIFACT_PROMPT,
 } from "../prompts";
-import { ArtifactCodeV3, ArtifactV3 } from "../../../types";
-import { isArtifactCodeContent } from "../../../lib/artifact_content_types";
-import { getArtifactContent } from "../../../hooks/use-graph/utils";
+import { ArtifactCodeV3, ArtifactV3 } from "../../types";
+import { getArtifactContent } from "../../utils";
+import { isArtifactCodeContent } from "@/lib/artifact_content_types";
 
 export const rewriteCodeArtifactTheme = async (
   state: typeof OpenCanvasGraphAnnotation.State

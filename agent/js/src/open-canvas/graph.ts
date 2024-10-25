@@ -11,7 +11,7 @@ import { rewriteCodeArtifactTheme } from "./nodes/rewriteCodeArtifactTheme";
 import { reflectNode } from "./nodes/reflect";
 import { customAction } from "./nodes/customAction";
 import { updateHighlightedText } from "./nodes/updateHighlightedText";
-import { DEFAULT_INPUTS } from "../../constants";
+import { DEFAULT_INPUTS } from "../constants";
 
 const routeNode = (state: typeof OpenCanvasGraphAnnotation.State) => {
   if (!state.next) {

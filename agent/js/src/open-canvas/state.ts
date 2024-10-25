@@ -6,7 +6,7 @@ import {
   CodeHighlight,
   ArtifactV3,
   TextHighlight,
-} from "../../types";
+} from "../types";
 import { Annotation, MessagesAnnotation } from "@langchain/langgraph";
 
 export const OpenCanvasGraphAnnotation = Annotation.Root({

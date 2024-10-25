@@ -3,8 +3,8 @@
   "dockerfile_lines": [],
   "dependencies": ["."],
   "graphs": {
-    "agent": "./src/agent/open-canvas/index.ts:graph",
-    "reflection": "./src/agent/reflection/index.ts:graph"
+    "agent": "./src/open-canvas/graph.ts:graph",
+    "reflect": "./src/reflection/graph.ts:graph"
   },
   "env": ".env"
 }

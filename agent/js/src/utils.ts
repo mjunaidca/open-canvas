@@ -1,6 +1,11 @@
 import { BaseStore, LangGraphRunnableConfig } from "@langchain/langgraph";
-import { ArtifactCodeV3, ArtifactMarkdownV3, Reflections } from "../types";
 import { isArtifactCodeContent } from "@/lib/artifact_content_types";
+import {
+  ArtifactCodeV3,
+  ArtifactMarkdownV3,
+  ArtifactV3,
+  Reflections
+} from "@/types";
 
 export const formatReflections = (
   reflections: Reflections,
@@ -78,4 +83,20 @@ export const formatArtifactContentWithTemplate = (
     "{artifact}",
     formatArtifactContent(content, shortenContent)
   );
+};
+
+
+export const getArtifactContent = (
+  artifact: ArtifactV3
+): ArtifactCodeV3 | ArtifactMarkdownV3 => {
+  if (!artifact) {
+    throw new Error("No artifact found.");
+  }
+  const currentContent = artifact.contents.find(
+    (a) => a.index === artifact.currentIndex
+  );
+  if (!currentContent) {
+    return artifact.contents[artifact.contents.length - 1];
+  }
+  return currentContent;
 };
