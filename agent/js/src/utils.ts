@@ -13,7 +13,7 @@ import * as path from 'path';
 // Helper function to load prompts from a file
 export const loadPrompts = (filename: string): { [key: string]: string } => {
   try {
-    const filePath = path.resolve(__dirname, `../../prompts/${filename}`);
+    const filePath = path.resolve(__dirname, `../../../prompts/${filename}`);
     
     // Check if file exists to prevent errors
     if (!fs.existsSync(filePath)) {
